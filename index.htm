@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>warp-tls-example</title>
+        <script>
+            dropBox=function(s,d){
+             var click=function(e){input.click()}
+             var change=function(e){for (var i=0;i<this.files.length;i++){s.send(this.files[i])}}
+             var input=document.createElement('input')
+             input.type='file'
+             input.addEventListener('change',change,false)
+             d.addEventListener('click',click,false)
+            }
+
+            var wss = new WebSocket('wss://localhost:9160')
+            wss.binaryType = 'blob'
+            wss.onopen = function(){dropBox(wss,document.getElementById('wss'))}
+        </script>
+    </head>
+    <body>
+        <h1>wss</h1>
+        <img id="wss" src="wss.png"/>
+    </body>
+</html>
