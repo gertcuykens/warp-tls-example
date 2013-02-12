@@ -17,5 +17,5 @@ loop r' = WS.acceptRequest r' >> forever (WS.receiveData >>= liftIO . BL.writeFi
 
 main :: IO ()
 main = do
-    print "Click the picture on this site https://localhost:9160/ pleas"
+    print "Click the picture on this site https://localhost:9160/"
     runTLS defaultTLS defaultSettings {settingsPort = 9160, settingsIntercept = intercept loop} $ staticApp (defaultFileServerSettings $ fromString ".")
